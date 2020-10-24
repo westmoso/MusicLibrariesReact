@@ -1,14 +1,9 @@
 import React from 'react';
-import logo from './logo.svg'; //source is like 28
 import axios from 'axios';
-import './App.css';
 
-class App extends React.Component {
+import API from '../api/music';
 
-      state = {
-      music: []
-    }
-
+export default class musicList extends React.Component {
   componentDidMount() {
     axios.get(`http://www.devcodecampmusiclibrary.com/api/music`)
       .then(res => {
@@ -42,4 +37,3 @@ render() {
   );
 }
 }
-export default App;

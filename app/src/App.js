@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from './logo.svg'; //source is like 28
 import axios from 'axios';
 import './App.css';
+import ReactTable from "react-table";  
+import Fuse from 'fuse.js';
+
 
 class App extends React.Component {
-
       state = {
       music: []
     }
@@ -18,14 +19,10 @@ class App extends React.Component {
   }
 
 render() {
-  
-  return (
-
-
+    return (
     <div className="App">
       <header className="App-header">
-        {console.log(this.state.music)}
-        <img src={logo} className="App-logo" alt="logo" />
+        {console.log(Fuse, this.state.music)}        
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

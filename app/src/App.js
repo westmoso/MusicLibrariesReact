@@ -1,42 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './App.css';
-import ReactTable from "react-table";  
-import Fuse from 'fuse.js';
+import NavBar from './components/navbar'
+import Search from './components/search'
 
 
-class App extends React.Component {
-      state = {
-      music: []
-    }
+function App() {
+  const [music, setMusic] = useState(null);
 
-  componentDidMount() {
-    axios.get(`http://www.devcodecampmusiclibrary.com/api/music`)
-      .then(res => {
-        const music = res.data;
-        this.setState({ music });
-      })
-  }
+  const fetchData = async () => {
+    const response = await axios.get(
+      'http://www.devcodecampmusiclibrary.com/api/music'
+    );
 
-render() {
-    return (
+    setMusic(response.data);
+  };
+
+  return (
     <div className="App">
-      <header className="App-header">
-        {console.log(Fuse, this.state.music)}        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Search />
+      <div>
+        <button className="fetch-button" onClick={fetchData}>
+          Retrieve Music
+        </button>
+        <br />
+      </div>
+
+      <div className="music">
+        {music &&
+          music.map((music, index) => {
+            const artist = music.artist;
+            return (
+              <div className="music" key={index}>
+                <h2>{music.name}</h2>
+
+                <div className="details">
+                  <p>Artist: {artist}</p>
+                  <p>Album: {music.album} pages</p>
+                  <p>Genre: {music.genre}</p>
+                  <p>Released: {music.releaseDate}</p>
+                </div>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
-}
+
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<App />, rootElement);
+
 export default App;

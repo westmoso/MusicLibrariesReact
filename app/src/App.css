@@ -9,7 +9,7 @@
 }
 
 .App > h1 {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .fetch-button {
@@ -31,32 +31,31 @@
   border-radius: 5px;
 }
 
-.music {
+.music2 {
   display: flex;
   flex-wrap: wrap;
 }
 
 .music {
-  background: #fff;
   position: relative;
   border-radius: 5px;
   padding: 20px;
   margin: 10px;
   width: 60%;
-  color: rgb(0, 0, 0);
+  color: #000000;
   flex-basis: width;
-  background-color: rgba(122, 91, 126, 0.377);
+  background-color: #dddddd85;
 }
 
 .music h3 {
   margin-bottom: 5px;
   font-size: 1rem;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .music h2 {
-  margin-top: 5px;
-  margin-bottom: 30px;
+  margin-top: 1px;
+  margin-bottom: 10px;
   font-size: 1.5rem;
 }
 
@@ -64,54 +63,33 @@
   text-align: left;
 }
 
-.header {
+.navhead {
   margin-top: 20px;
   display: flex;
   flex: 1;
   flex-direction: column;
 }
 
-.header-top {
-  display: flex;
-  width: 100%;
-  height: 80px;
-}
-
-.header-top__navbar {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-}
-
-.header-top__seperator {
-  width: 100%;
+.navhead-top__seperator {
+  width: 75%;
   border: none;
   height: 2px;
   margin-top: 2px;
   background-color: black;
 }
 
-.header-top__navigation {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-right: 55px;
-}
-
-
-.navbar {
+.search {
   display: flex;
   flex-direction: row;
 }
 
-.navbar-item {
+.search-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 30px;
+  margin-left: 600px;
   color: inherit;
-  text-decoration: inherit;
+  text-decoration: underline;
   text-transform: uppercase;
   outline: none;
 }

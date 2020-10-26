@@ -3,9 +3,9 @@ import React from 'react';
 function navBar () {
 
   return (
-    <section className="header">
+    <section className="navhead">
         <h1>Music Library</h1>
-        <hr className="header-top__seperator" />
+        <hr className="navhead-top__seperator" />
     </section>
   )
 }

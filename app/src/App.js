@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './App.css';
-import NavBar from './components/navbar'
-import Search from './components/search'
+import NavBar from './components/navbar';
+import Search from './components/search';
+
 
 
 function App() {
@@ -27,24 +28,25 @@ function App() {
         </button>
         <br />
       </div>
-
-      <div className="music">
-        {music &&
-          music.map((music, index) => {
-            const artist = music.artist;
-            return (
-              <div className="music" key={index}>
-                <h2>{music.name}</h2>
-
-                <div className="details">
-                  <p>Artist: {artist}</p>
-                  <p>Album: {music.album} pages</p>
-                  <p>Genre: {music.genre}</p>
-                  <p>Released: {music.releaseDate}</p>
+      <div className="music2">
+        <div className="music">
+          <h2>Track Details</h2>
+          {music &&
+            music.map((music, index) => {
+              const artist = music.artist;
+              return (
+                <div className="music" key={index}>
+                  <h2>{music.name}</h2>
+                  <div className="details">
+                    <p>Artist: {artist}</p>
+                    <p>Album: {music.album}</p>
+                    <p>Genre: {music.genre}</p>
+                    <p>Released: {music.releaseDate}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
+//import info from './components/info';
 
 function search () {
   return (
-    <section className="navbar">
-    <a href="/" className="navbar-item">Home</a>
-    <a href="/" className="navbar-item">Retrieve Music</a>
-    <a href="/search" className="navbar-item">Search</a>
+    <section className="search">
+    <a href="/" className="search-item">Home</a>
+    <a href="/search" className="search-item">Search</a>
     </section>
   )
 }

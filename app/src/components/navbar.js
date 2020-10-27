@@ -4,9 +4,10 @@ function navBar () {
 
   return (
     <section className="navhead">
-        <h1>Music Library</h1>
+        <h1><a href="/" >Music Library</a></h1>
         <hr className="navhead-top__seperator" />
     </section>
+    
   )
 }
 

@@ -31,17 +31,15 @@
   border-radius: 5px;
 }
 
-.music2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .music {
   position: relative;
   border-radius: 5px;
   padding: 20px;
   margin: 10px;
-  width: 60%;
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 200px;
+  width: 50%;
   color: #000000;
   flex-basis: width;
   background-color: #dddddd85;
@@ -66,6 +64,7 @@
 .navhead {
   margin-top: 20px;
   display: flex;
+  justify-content: center;
   flex: 1;
   flex-direction: column;
 }
@@ -87,7 +86,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 600px;
+  margin-left: 40px;
   color: inherit;
   text-decoration: underline;
   text-transform: uppercase;

@@ -1,38 +1,37 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import axios from 'axios';
 import './App.css';
 import NavBar from './components/navbar';
-import Search from './components/search';
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: '', music:[]};
 
+  }
 
-function App() {
-  const [music, setMusic] = useState(null);
+  handleChange(event) {    this.setState({value: event.target.value});  }
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      'http://www.devcodecampmusiclibrary.com/api/music'
-    );
+  async componentDidMount() {
+    const response = await axios.get(`http://www.devcodecampmusiclibrary.com/api/music`);
+    this.setState({ music: response.data});
+  }
 
-    setMusic(response.data);
-  };
-
+  render() {
   return (
+    
     <div className="App">
-      <NavBar />
-      <Search />
-      <div>
-        <button className="fetch-button" onClick={fetchData}>
-          Retrieve Music
-        </button>
-        <br />
-      </div>
-      <div className="music2">
+      <NavBar />     
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Song, Title, Album, or Date: 
+          <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
+        <input type="submit" value="Submit" />
+      </form> 
         <div className="music">
           <h2>Track Details</h2>
-          {music &&
-            music.map((music, index) => {
+          {this.state.music &&
+            this.state.music.map((music, index) => {
               const artist = music.artist;
               return (
                 <div className="music" key={index}>
@@ -47,13 +46,11 @@ function App() {
               );
             })}
         </div>
-      </div>
+
     </div>
   );
 }
-
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+}
 
 export default App;
+
